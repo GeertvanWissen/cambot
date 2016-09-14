@@ -1,1 +1,1 @@
-./motion -c motion-mmalcam.conf
+../motion -c motion-mmalcam.conf
