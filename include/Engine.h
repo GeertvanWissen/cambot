@@ -19,3 +19,5 @@ public:
   bool stop();
   int getStatus;
 };
+
+#endif
