@@ -4,13 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "GPIOClass.h"
-#include "move.h"
+#include "Engine.h"
 
 using namespace std;
 
 int main (void)
 {
-    Move::init();
+    Engine eng;
 
     string inputstate;
     // create objects for I/O
@@ -33,10 +33,10 @@ int main (void)
         cout << "Front left switch state is " << inputstate  <<endl;
 	
 	if (inputstate == "1") {
-		        Move::direction(2);
+		        eng.move(2);
 			cout << "motor should be on" << endl;
 	}else{
-			Move::stop();
+			eng::stop();
 
 	}
 	usleep(20000);
