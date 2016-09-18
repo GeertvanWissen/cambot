@@ -1,1 +1,1 @@
-g++ -o cambot src/cambot.cpp src/move.cpp src/GPIOClass.cpp -I include/
+g++ -o cambot src/cambot.cpp src/Engine.cpp src/GPIOClass.cpp -I include/

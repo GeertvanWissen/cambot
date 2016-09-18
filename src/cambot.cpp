@@ -36,7 +36,7 @@ int main (void)
 		        eng.move(2);
 			cout << "motor should be on" << endl;
 	}else{
-			eng::stop();
+			eng.stop();
 
 	}
 	usleep(20000);

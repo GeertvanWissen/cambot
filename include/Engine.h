@@ -14,5 +14,5 @@ public:
   Engine();
   bool move(int dir);
   bool stop();
-  int getStatus
+  int getStatus;
 };
