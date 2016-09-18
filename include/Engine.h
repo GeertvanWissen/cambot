@@ -12,7 +12,7 @@ private:
   
 public:
   Engine();
-  bool (int dir);
+  bool move(int dir);
   bool stop();
   int getStatus
 };
