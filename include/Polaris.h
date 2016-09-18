@@ -1,4 +1,5 @@
-// object to retrieve coordinates to navigate with
+#ifndef POLARIS_H
+#define POLARIS_H
 
 class Polaris {
 
