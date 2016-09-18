@@ -6,16 +6,14 @@
 #include "Engine.h"
 #include "GPIOClass.h"
 
-bool Engine::Engine()
-{
+Engine::Engine() {
+  motor1A = new GPIOClass("23");
+  motor1B = new GPIOClass("24");
+  motor1E = new GPIOClass("25");
 
-  GPIOClass* motor1A = new GPIOClass("23");
-  GPIOClass* motor1B = new GPIOClass("24");
-  GPIOClass* motor1E = new GPIOClass("25");
-
-  GPIOClass* motor2A = new GPIOClass("10");
-  GPIOClass* motor2B = new GPIOClass("9");
-  GPIOClass* motor2E = new GPIOClass("11");
+  motor2A = new GPIOClass("10");
+  motor2B = new GPIOClass("9");
+  motor2E = new GPIOClass("11");
 
   motor1A->export_gpio();
   motor1B->export_gpio();
@@ -32,12 +30,9 @@ bool Engine::Engine()
   motor2A->setdir_gpio("out");
   motor2B->setdir_gpio("out");
   motor2E->setdir_gpio("out");
-
-  return true;
 }
 
-bool Engine::move(int dir)
-{
+bool Engine::move(int dir) {
   // first set the direction for both motors
   if (dir<=3) {
     motor1A->setval_gpio("0");
@@ -76,11 +71,15 @@ bool Engine::move(int dir)
     motor2E->setval_gpio("0");
   }
 
+  status = dir;
+  
   return true;
 }
-bool Engine::Stop()
-{
+bool Engine::stop() {
   motor1E->setval_gpio("0");
   motor2E->setval_gpio("0");
+  
+  status = 0;
+  
   return true;
 }
