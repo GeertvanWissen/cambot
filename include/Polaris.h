@@ -4,6 +4,8 @@
 #include <vector>
 
 class Polaris {
+private:
+  vector<Coords> coordslist;
 
 public:
   struct Coords
@@ -12,12 +14,13 @@ public:
     int y;
   };
   
-  vector<Coords> coordslist;
-  
   Polaris()
   {
     // constructor
   }
+  
+  getCoordslist();
+
 }
 
 #endif
