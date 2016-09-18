@@ -46,44 +46,42 @@ int GPIOClass::unexport_gpio()
 
 int GPIOClass::setdir_gpio(string dir)
 {
-
     string setdir_str ="/sys/class/gpio/gpio" + this->gpionum + "/direction";
     ofstream setdirgpio(setdir_str.c_str()); // open direction file for gpio
-        if (setdirgpio < 0){
-            cout << " OPERATION FAILED: Unable to set direction of GPIO"<< this->gpionum <<" ."<< endl;
-            return -1;
-        }
+    if (setdirgpio < 0){
+        cout << " OPERATION FAILED: Unable to set the direction of GPIO"<< this->gpionum <<" ."<< endl;
+        return -1;
+    }
 
-        setdirgpio << dir; //write direction to direction file
-        setdirgpio.close(); // close direction file
-        return 0;
+    setdirgpio << dir; // write direction to direction file
+    setdirgpio.close(); // close direction file
+    return 0;
 }
 
 int GPIOClass::setval_gpio(string val)
 {
-
     string setval_str = "/sys/class/gpio/gpio" + this->gpionum + "/value";
     ofstream setvalgpio(setval_str.c_str()); // open value file for gpio
-        if (setvalgpio < 0){
-            cout << " OPERATION FAILED: Unable to set the value of GPIO"<< this->gpionum <<" ."<< endl;
-            return -1;
-        }
+    if (setvalgpio < 0){
+        cout << " OPERATION FAILED: Unable to set the value of GPIO"<< this->gpionum <<" ."<< endl;
+        return -1;
+    }
 
-        setvalgpio << val ;//write value to value file
-        setvalgpio.close();// close value file
-        return 0;
+    setvalgpio << val ; //write value to value file
+    setvalgpio.close(); // close value file
+    return 0;
 }
 
-int GPIOClass::getval_gpio(string& val){
-
+int GPIOClass::getval_gpio(string& val)
+{
     string getval_str = "/sys/class/gpio/gpio" + this->gpionum + "/value";
-    ifstream getvalgpio(getval_str.c_str());// open value file for gpio
+    ifstream getvalgpio(getval_str.c_str()); // open value file for gpio
     if (getvalgpio < 0){
-        cout << " OPERATION FAILED: Unable to get value of GPIO"<< this->gpionum <<" ."<< endl;
+        cout << " OPERATION FAILED: Unable to get the value of GPIO"<< this->gpionum <<" ."<< endl;
         return -1;
-            }
+    }
 
-    getvalgpio >> val ;  //read gpio value
+    getvalgpio >> val ; //read gpio value
 
     if(val != "0")
         val = "1";
@@ -95,7 +93,5 @@ int GPIOClass::getval_gpio(string& val){
 }
 
 string GPIOClass::get_gpionum(){
-
-return this->gpionum;
-
+    return this->gpionum;
 }
