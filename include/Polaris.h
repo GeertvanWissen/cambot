@@ -1,6 +1,8 @@
 #ifndef POLARIS_H
 #define POLARIS_H
 
+#include <vector>
+
 class Polaris {
 
 public:
