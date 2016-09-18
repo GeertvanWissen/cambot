@@ -3,11 +3,10 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Engine.h"
 #include "GPIOClass.h"
 
-using namespace std;
-
-bool Move::init()
+bool Engine::Engine()
 {
 
   GPIOClass* motor1A = new GPIOClass("23");
@@ -37,7 +36,7 @@ bool Move::init()
   return true;
 }
 
-bool Move::direction(int dir)
+bool Engine::move(int dir)
 {
   // first set the direction for both motors
   if (dir<=3) {
@@ -79,7 +78,7 @@ bool Move::direction(int dir)
 
   return true;
 }
-bool Move::stop(int dir)
+bool Engine::Stop()
 {
   motor1E->setval_gpio("0");
   motor2E->setval_gpio("0");
